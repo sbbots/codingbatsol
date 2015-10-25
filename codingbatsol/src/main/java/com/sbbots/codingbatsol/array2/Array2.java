@@ -80,7 +80,72 @@ public class Array2 {
 			}
 		}
 		return true;
+	}
+	
+	/*
+	 * Given an array of ints, return true if the sum of all the 2's in the
+	 * array is exactly 8.
+	 * 
+	 * sum28({2, 3, 2, 2, 4, 2}) → true 
+	 * sum28({2, 3, 2, 2, 4, 2, 2}) → false
+	 * sum28({1, 2, 3, 4}) → false
+	 */
+	public boolean sum28(int[] nums) {
 
+		int total = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 2) {
+				total += 2;
+			}
+		}
+		return total == 8;
 	}
 
+	/*
+	 * Given an array of ints, return true if the number of 1's is greater than
+	 * the number of 4's
+	 * 
+	 * more14({1, 4, 1}) → true 
+	 * more14({1, 4, 1, 4}) → false 
+	 * more14({1, 1}) → true
+	 */
+	public boolean more14(int[] nums) {
+
+		int count1 = 0;
+		int count4 = 0;
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1) {
+				count1++;
+			}
+			if (nums[i] == 4) {
+				count4++;
+			}
+		}
+
+		return count1 > count4;
+	}
+
+	/*
+	 * Given a number n, create and return a new int array of length n,
+	 * containing the numbers 0, 1, 2, ... n-1. The given n may be 0, in which
+	 * case just return a length 0 array. You do not need a separate
+	 * if-statement for the length-0 case; the for-loop should naturally execute
+	 * 0 times in that case, so it just works. The syntax to make a new int
+	 * array is: new int[desired_length] (See also: FizzBuzz Code)
+	 * 
+	 * fizzArray(4) → {0, 1, 2, 3} 
+	 * fizzArray(1) → {0} 
+	 * fizzArray(10) → {0, 1, 2, 3, 4, 5, 6, 7, 8, 9}
+	 */
+
+	public int[] fizzArray(int n) {
+
+		int[] newArr = new int[n];
+
+		for (int i = 0; i < n; i++) {
+			newArr[i] = i;
+		}
+		return newArr;
+	}
+	
 }
