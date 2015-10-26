@@ -262,12 +262,17 @@ public class Array2 {
 				continue;
 			}
 		}
-		/* Needed something nice to not explicitly tell it what to do. May be
-		 a boolean operator would help here.*/
-		if (two && fours) {
-			return false;
-		} 
-		return two || fours;
+		/*
+		 * Needed something nice to not explicitly tell it what to do. May be a
+		 * boolean operator would help here. if (two && fours) { return false; }
+		 * return two || fours;
+		 */
+		
+		/*
+		 * XOR - Exclusive OR, basically, excludes the possibility of both x and
+		 * y. Arithmetically it is an addition of both then mod by 2 i.e.  (1+1)%2 = 0;
+		 */
+		return two ^ fours;
 	}
 	
 }
