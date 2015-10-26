@@ -1,7 +1,7 @@
 package com.sbbots.codingbatsol.array2;
 
 public class Array2 {
-
+	
 	public static void main(String[] args) {
 
 		// Instantiate the object and call the required methods.
@@ -165,4 +165,52 @@ public class Array2 {
 		return true;
 	}
 
+	/*
+	 * Given a number n, create and return a new string array of length n,
+	 * containing the strings "0", "1" "2" .. through n-1. N may be 0, in which
+	 * case just return a length 0 array. Note: String.valueOf(xxx) will make
+	 * the String form of most types. The syntax to make a new string array is:
+	 * new String[desired_length] (See also: FizzBuzz Code)
+	 * 
+	 * fizzArray2(4) → {"0", "1", "2", "3"}
+	 * fizzArray2(10) → {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9"} 
+	 * fizzArray2(2) → {"0", "1"}
+	 */
+	public String[] fizzArray2(int n) {
+
+		String[] arr = new String[n];
+
+		for (int i = 0; i < n; i++) {
+			arr[i] = String.valueOf(i);
+		}
+		return arr;
+	}
+	
+	/*
+	 * Given an array of ints, return true if it contains no 1's or it contains
+	 * no 4's.
+	 * 
+	 * no14({1, 2, 3}) → true 
+	 * no14({1, 2, 3, 4}) → false 
+	 * no14({2, 3, 4}) → true
+	 */
+	public boolean no14(int[] nums) {
+
+		boolean fours = true;
+		boolean ones = true;
+
+		for (int i = 0; i < nums.length; i++) {
+			if (nums[i] == 1) {
+				ones = false;
+				continue;
+			}
+			if (nums[i] == 4) {
+				fours = false;
+				continue;
+			}
+		}
+
+		return ones || fours;
+	}
+	
 }
