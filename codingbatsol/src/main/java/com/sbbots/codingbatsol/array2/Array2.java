@@ -525,7 +525,8 @@ public class Array2 {
 	 * {2, 5, 3, 6}. You may modify and return the given array, or return a new
 	 * array.
 	 * 
-	 * shiftLeft({6, 2, 5, 3}) → {2, 5, 3, 6} shiftLeft({1, 2}) → {2, 1}
+	 * shiftLeft({6, 2, 5, 3}) → {2, 5, 3, 6} 
+	 * shiftLeft({1, 2}) → {2, 1}
 	 * shiftLeft({1}) → {1}
 	 */
 	public int[] shiftLeft(int[] nums) {
@@ -539,5 +540,35 @@ public class Array2 {
 			arr[nums.length - 1] = nums[0];
 		}
 		return arr;
+	}
+	
+	/*
+	 * For each multiple of 10 in the given array, change all the values
+	 * following it to be that multiple of 10, until encountering another
+	 * multiple of 10. So {2, 10, 3, 4, 20, 5} yields {2, 10, 10, 10, 20, 20}.
+	 * 
+	 * tenRun({2, 10, 3, 4, 20, 5}) → {2, 10, 10, 10, 20, 20} 
+	 * tenRun({10, 1, 20, 2}) → {10, 10, 20, 20} 
+	 * tenRun({10, 1, 9, 20}) → {10, 10, 10, 20}
+	 */
+	public int[] tenRun(int[] nums) {
+
+		int len = nums.length;
+		int multiple = 10;
+
+		for (int i = 0; i < len; i++) {
+
+			if (nums[i] % 10 == 0) {
+				multiple = nums[i];
+				i++;
+				while (i < len && nums[i] % 10 != 0) {
+
+					nums[i] = multiple;
+					i++;
+				}
+				i--;
+			}
+		}
+		return nums;
 	}
 }
