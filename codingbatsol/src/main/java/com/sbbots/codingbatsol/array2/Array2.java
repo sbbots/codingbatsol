@@ -319,4 +319,66 @@ public class Array2 {
 		return false;
 	}
 	
+	/*
+	 * Given an array of ints, return true if there is a 1 in the array with a 2
+	 * somewhere later in the array.
+	 * 
+	 * has12({1, 3, 2}) → true 
+	 * has12({3, 1, 2}) → true 
+	 * has12({3, 1, 4, 5, 2}) → true
+	 */
+
+	public boolean has12(int[] nums) {
+
+		boolean found1 = false;
+
+		for (int i = 0; i < nums.length; i++) {
+
+			if (nums[i] == 2) {
+				if (found1) {
+					return true;
+				}
+			}
+			if (nums[i] == 1) {
+				found1 = true;
+			}
+		}
+		return false;
+	}	
+	
+	/*
+	 * Given an array of ints, return true if the array contains either 3 even
+	 * or 3 odd values all next to each other.
+	 * 
+	 * modThree({2, 1, 3, 5}) → true modThree({2, 1, 2, 5}) → false modThree({2,
+	 * 4, 2, 5}) → true
+	 */
+
+	public boolean modThree(int[] nums) {
+
+		int countEven = 0;
+		int countOdd = 0;
+
+		for (int i = 0; i < nums.length; i++) {
+
+			if (nums[i] % 2 == 0) {
+				countOdd = 0;
+				countEven++;
+				if (countEven > 2) {
+					return true;
+				}
+				continue;
+			}
+			if (nums[i] % 2 == 1) {
+				countEven = 0;
+				countOdd++;
+				if (countOdd > 2) {
+					return true;
+				}
+				continue;
+			}
+		}
+		return false;
+	}
+	
 }
