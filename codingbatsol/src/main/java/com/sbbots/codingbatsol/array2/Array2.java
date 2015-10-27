@@ -381,4 +381,63 @@ public class Array2 {
 		return false;
 	}
 	
+	/*
+	 * Given an array of ints, return true if the value 3 appears in the array
+	 * exactly 3 times, and no 3's are next to each other.
+	 * 
+	 * haveThree({3, 1, 3, 1, 3}) → true 
+	 * haveThree({3, 1, 3, 3}) → false
+	 * haveThree({3, 4, 3, 3, 4}) → false
+	 */
+	public boolean haveThree(int[] nums) {
+
+		int count = 0;
+		boolean found3 = false;
+
+		for (int i = 0; i < nums.length; i++) {
+
+			if (nums[i] == 3 && !found3) {
+				found3 = true;
+				count++;
+				continue;
+			} else {
+				found3 = false;
+			}
+
+			if (i < nums.length - 1 && nums[i] == 3 && nums[i + 1] == 3) {
+				return false;
+			}
+		}
+		return (count == 3);
+	}
+	
+	/*
+	 * Given an array of ints, return true if every 2 that appears in the array
+	 * is next to another 2./*
+	 * 
+	 * twoTwo({4, 2, 2, 3}) → true 
+	 * twoTwo({2, 2, 4}) → true 
+	 * twoTwo({2, 2, 4, 2}) → false
+	 */
+
+	public boolean twoTwo(int[] nums) {
+
+		int len = nums.length;
+		int count = 0;
+
+		int i = 0;
+		while (i < len) {
+
+			if (nums[i] == 2) {
+				if (((i > 0 && nums[i - 1] == 2) || ((i < len - 1) && nums[i + 1] == 2))) {
+					i++;
+					continue;
+				} else {
+					return false;
+				}
+			}
+			i++;
+		}
+		return true;
+	}
 }
