@@ -440,4 +440,84 @@ public class Array2 {
 		}
 		return true;
 	}
+	
+	/*
+	 * Return true if the group of N numbers at the start and end of the array
+	 * are the same. For example, with {5, 6, 45, 99, 13, 5, 6}, the ends are
+	 * the same for n=0 and n=2, and false for n=1 and n=3. You may assume that
+	 * n is in the range 0..nums.length inclusive.
+	 * 
+	 * sameEnds({5, 6, 45, 99, 13, 5, 6}, 1) → false 
+	 * sameEnds({5, 6, 45, 99, 13, 5, 6}, 2) → true 
+	 * sameEnds({5, 6, 45, 99, 13, 5, 6}, 3) → false
+	 */	
+	public boolean sameEnds(int[] nums, int len) {
+
+		int length = nums.length;
+		int i = 0;
+
+		if (len < 1) {
+			return true;
+		}
+		while (i < len && i < length) {
+			if (nums[i] == nums[length - len + i]) {
+				i++;
+				continue;
+			} else {
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	/*
+	 * Return true if the array contains, somewhere, three increasing adjacent
+	 * numbers like .... 4, 5, 6, ... or 23, 24, 25.
+	 * 
+	 * tripleUp({1, 4, 5, 6, 2}) → true 
+	 * tripleUp({1, 2, 3}) → true 
+	 * tripleUp({1, 2, 4}) → false
+	 */
+	public boolean tripleUp(int[] nums) {
+
+		int counter = 0;
+		int i = 0;
+		while (i < nums.length - 1) {
+
+			if (nums[i + 1] == nums[i] + 1) {
+				counter++;
+				if (counter == 2) {
+					return true;
+				}
+
+			} else {
+				counter = 0;
+			}
+			i++;
+		}
+
+		return false;
+	}
+	
+	/*
+	 * Given start and end numbers, return a new array containing the sequence
+	 * of integers from start up to but not including end, so start=5 and end=10
+	 * yields {5, 6, 7, 8, 9}. The end number will be greater or equal to the
+	 * start number. Note that a length-0 array is valid. (See also: FizzBuzz
+	 * Code)
+	 * 
+	 * fizzArray3(5, 10) → {5, 6, 7, 8, 9} 
+	 * fizzArray3(11, 18) → {11, 12, 13, 14, 15, 16, 17} 
+	 * fizzArray3(1, 3) → {1, 2}
+	 */
+	public int[] fizzArray3(int start, int end) {
+
+		int[] arr = new int[end - start];
+
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = i + start;
+		}
+		return arr;
+	}
+	
 }
