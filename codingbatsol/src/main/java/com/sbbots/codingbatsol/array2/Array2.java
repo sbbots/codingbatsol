@@ -275,4 +275,48 @@ public class Array2 {
 		return two ^ fours;
 	}
 	
+	/*
+	 * Given arrays nums1 and nums2 of the same length, for every element in
+	 * nums1, consider the corresponding element in nums2 (at the same index).
+	 * Return the count of the number of times that the two elements differ by 2
+	 * or less, but are not equal.
+	 * 
+	 * matchUp({1, 2, 3}, {2, 3, 10}) → 2
+	 * matchUp({1, 2, 3}, {2, 3, 5}) → 3
+	 * matchUp({1, 2, 3}, {2, 3, 3}) → 2
+	 */
+	public int matchUp(int[] nums1, int[] nums2) {
+
+		int count = 0;
+		for (int i = 0; i < nums1.length; i++) {
+
+			if (nums1[i] != nums2[i] && Math.abs(nums1[i] - nums2[i]) <= 2) {
+				count++;
+			}
+		}
+
+		return count;
+	}
+	
+	/*
+	 * Given an array of ints, return true if the array contains two 7's next to
+	 * each other, or there are two 7's separated by one element, such as with
+	 * {7, 1, 7}.
+	 * 
+	 * has77({1, 7, 7}) → true 
+	 * has77({1, 7, 1, 7}) → true 
+	 * has77({1, 7, 1, 1, 7}) → false
+	 */
+	public boolean has77(int[] nums) {
+
+		for (int i = 0; i < nums.length - 1; i++) {
+
+			if ((nums[i] == nums[i + 1] && nums[i] == 7)
+					|| (i < nums.length - 2 && (nums[i] == nums[i + 2] && nums[i] == 7))) {
+				return true;
+			}
+		}
+		return false;
+	}
+	
 }
