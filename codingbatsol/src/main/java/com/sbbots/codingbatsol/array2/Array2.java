@@ -615,11 +615,18 @@ public class Array2 {
 				break;
 			}
 		}
+		
 		int[] arr = new int[len - i - 1];
 		for (int j = 0; j < arr.length && (i + j + 1) < nums.length; j++) {
 
 			arr[j] = nums[i + j + 1];
 		}
+		/*
+		 * OR
+		 * nums = Arrays.copyOfRange(nums,i+1, len);
+		 * return nums;
+		 */
+		
 		return arr;
 	}
 
