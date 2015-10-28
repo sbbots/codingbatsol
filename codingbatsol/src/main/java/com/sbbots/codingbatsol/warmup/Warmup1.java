@@ -1,4 +1,4 @@
-package com.sbbots.codingbatsol.array2;
+package com.sbbots.codingbatsol.warmup;
 
 public class Warmup1 {
 

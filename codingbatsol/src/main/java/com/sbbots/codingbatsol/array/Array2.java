@@ -1,4 +1,4 @@
-package com.sbbots.codingbatsol.array2;
+package com.sbbots.codingbatsol.array;
 
 import java.util.Arrays;
 
