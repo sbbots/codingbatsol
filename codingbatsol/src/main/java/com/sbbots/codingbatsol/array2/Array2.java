@@ -793,6 +793,12 @@ public class Array2 {
 
 			arr[i - start] = fizz && buzz ? "FizzBuzz" : (fizz ? "Fizz"
 					: (buzz ? "Buzz" : String.valueOf(i)));
+			/* More readable code could also be used
+			 * if(fizz && buzz) { arr[i-start] = "FizzBuzz" ; continue; }
+			 * if(fizz) { arr[i-start] = "Fizz" ; continue; } 
+			 * if(buzz){ arr[i-start] = "Buzz" ; continue; }
+			 * arr[i-start] = String.valueOf(i) ;
+			 */
 		}
 		return arr;
 	}	
