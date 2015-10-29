@@ -67,7 +67,6 @@ public class WarmUp2 {
 		}
 		return count;
 	}
-
 	
 	/*
 	 * Given a string, return true if the first instance of "x" in the string is
