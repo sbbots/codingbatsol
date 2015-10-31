@@ -1,10 +1,17 @@
 package com.sbbots.codingbatsol.array;
 
+import java.util.Arrays;
+
 public class Array3 {
 
 	public static void main(String[] args) {
 
 		// Instantiate the object and call the required methods.
+		
+		Array3 arrObj = new Array3();
+		int[] arr = {5, 4, 9, 4, 9, 5};
+		arr = arrObj.fix45(arr);
+		System.out.println(Arrays.toString(arr));
 
 	}
 
@@ -74,27 +81,30 @@ public class Array3 {
 	 * and 5's, and every 4 has a number after it that is not a 4. In this
 	 * version, 5's may appear anywhere in the original array.
 	 * 
-	 * fix45({5, 4, 9, 4, 9, 5}) → {9, 4, 5, 4, 5, 9} fix45({1, 4, 1, 5}) → {1,
-	 * 4, 5, 1} fix45({1, 4, 1, 5, 5, 4, 1}) → {1, 4, 5, 1, 1, 4, 5}
+	 * fix45({5, 4, 9, 4, 9, 5}) → {9, 4, 5, 4, 5, 9} 
+	 * fix45({1, 4, 1, 5}) → {1, 4, 5, 1} 
+	 * fix45({1, 4, 1, 5, 5, 4, 1}) → {1, 4, 5, 1, 1, 4, 5}
 	 */
 	public int[] fix45(int[] nums) {
 
 		int len = nums.length;
-		int j = 0;
 		for (int i = 0; i < len; i++) {
-
 			if (nums[i] == 4) {
-
-				while (j < len && nums[j] != 5) {
-					j++;
+				for (int j = 0; j < len; j++) {
+					if (nums[j] == 5) {
+						if (j > 0 && nums[j - 1] == 4) {
+							continue;
+						}
+						int temp = nums[i + 1];
+						nums[i + 1] = nums[j];
+						nums[j] = temp;
+						break;
+					}
 				}
-				int temp = nums[++i];
-				nums[i] = nums[j];
-				nums[j] = temp;
-
 			}
 		}
 		return nums;
 	}
+
 	
 }
